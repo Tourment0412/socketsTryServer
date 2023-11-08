@@ -32,6 +32,7 @@ public class PrimaryController implements Initializable,Runnable {
 
             while (serverRunning) {
                 Socket miSocket = servidor.accept();
+                //Con Object en lugar de data puedo leer objetos recordar que input es para leer
                 DataInputStream flujoEntrada = new DataInputStream(miSocket.getInputStream());
                 String mensajeTexto = flujoEntrada.readUTF();
                 Platform.runLater(() -> lblTextos.setText(mensajeTexto));
